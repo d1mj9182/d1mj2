@@ -12,18 +12,31 @@
       font-family:'Apple SD Gothic Neo',sans-serif;
       overflow:hidden;
       position:relative;
-      transition:all 0.2s;
     }
-    @media (max-width: 700px) {
+    @media (max-width:700px) {
       .d1mj-section {
         max-width:100vw !important;
         width:100vw !important;
+        min-width:100vw !important;
         margin:0 !important;
-        padding:10px 0 20px 0 !important;
+        padding:0 0 20px 0 !important;
         border-radius:0 !important;
         box-shadow:none !important;
-        min-height:100vh;
       }
+      .ani-box,
+      .ani-badge,
+      .ani-cash,
+      .main-title,
+      .benefit-list,
+      .impact-btn,
+      .service-box {
+        font-size:1.13rem !important;
+      }
+      .ani-cash h2 {font-size:1.08rem !important;}
+      .main-title {font-size:1.28rem !important;}
+      .review-photo {min-width:90px;max-width:110px;height:62px;}
+      .review-photo img {width:50px;height:50px;}
+      .impact-btn {padding:15px 0;font-size:1.06rem;}
     }
     /* 로고 네모 */
     .ani-box {
@@ -34,14 +47,12 @@
       box-shadow:0 2px 12px #ffd7e84d,0 0 0 5px #ffe5ef inset;
       display:inline-block;overflow:hidden;position:relative;
     }
-    /* 행사배지 */
     .ani-badge {
       background: linear-gradient(92deg,#e94e77 70%,#ffc1e1 100%);
       color:#fff;font-size:1rem;font-weight:800;
       padding:7px 22px 7px 18px;border-radius:22px;
       margin-left:10px;display:inline-block;vertical-align:middle;
     }
-    /* 현금혜택 강조 */
     .ani-cash {
       background: linear-gradient(90deg,#e94e77 0%,#fbb1b1 100%);
       padding:23px 10px 18px 10px;
@@ -54,20 +65,10 @@
       line-height:1.5;
     }
     .ani-cash h2 span { font-size:1.18rem; }
-    @media (max-width:600px){
-      .ani-cash h2{font-size:1.06rem;}
-      .ani-cash{padding:13px 5px 11px 5px;}
-    }
-    /* 메인 타이틀 */
     .main-title {
       font-size:2.08rem;text-align:center;color:#232245;margin-bottom:13px;font-weight:900;letter-spacing:-1px;line-height:1.25;
     }
     .main-title strong { color:#e94e77;font-size:2.1rem;font-weight:900;}
-    @media (max-width:600px){
-      .main-title{font-size:1.32rem;}
-      .main-title strong{font-size:1.4rem;}
-    }
-    /* 특징/혜택 리스트 */
     .benefit-list {
       list-style:none;padding:0;margin:0 0 19px 0;font-size:1.05rem;color:#444;text-align:center;
     }
@@ -76,7 +77,6 @@
     }
     .benefit-list .pink {color:#e94e77;font-weight:700;}
     .benefit-list .gray {color:#8b8db0;}
-    /* 후기사진 */
     .review-wrap {display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;}
     .review-photo {
       background:linear-gradient(135deg,#fff4f7 60%,#fffbe7 100%);
@@ -90,11 +90,6 @@
       width: 80px; height: 80px; object-fit: cover; border-radius:14px;
       box-shadow:0 2px 12px #ffe1ecb2; display:block;
     }
-    @media (max-width:600px) {
-      .review-photo { min-width:90px; max-width:110px; height:62px;}
-      .review-photo img { width:50px;height:50px;}
-    }
-    /* 상담신청 버튼 */
     .impact-btn {
       background:linear-gradient(90deg,#fbb1b1 0%,#e94e77 100%);
       color:#fff;border-radius:42px;box-shadow:0 0 34px #e94e77cc, 0 0px 0px #fff;
@@ -109,7 +104,6 @@
       background:linear-gradient(90deg,#e94e77 10%,#fbb1b1 90%);
       box-shadow:0 0 65px #e94e77dd, 0 0 42px #fff7,0 0 22px #e94e77bb;
     }
-    /* 하단 서비스 네모 */
     .service-box {
       background:linear-gradient(90deg,#ffecf2 0%,#ffe1ec 100%);
       padding:22px 7px 13px 7px;border-radius:16px;margin:0 auto 2px auto;text-align:center;box-shadow:0 2px 10px #fbb1b133;max-width:94vw;
@@ -124,11 +118,6 @@
       line-height:1.32;
       letter-spacing:-0.3px;
     }
-    @media (max-width:600px){
-      .service-title{font-size:0.98rem;}
-      .service-desc{font-size:0.87rem;}
-      .service-box{padding:13px 2px 10px 2px;}
-    }
   </style>
   <!-- 헤더 -->
   <div style="padding:22px 8px 0 8px;text-align:center;">
@@ -141,7 +130,7 @@
   <!-- 현금혜택 헤드라인 -->
   <div class="ani-cash">
     <h2>
-      💰 최대 110만원 현금사은품1 당일지급<br>
+      💰 최대 110만원 현금사은품2 당일지급<br>
       24시간 실시간 상담 | 당일 설치 | 전국 어디든 설치 가능 | 초고속 현금지급
     </h2>
   </div>
@@ -160,7 +149,7 @@
     <div class="review-photo"><img src="**여기2번_후기사진_URL**" alt="후기2"></div>
     <div class="review-photo"><img src="**여기3번_후기사진_URL**" alt="후기3"></div>
   </div>
-  <!-- 실시간 상담 버튼 (폼 연결 + 강력한 임펙트 애니메이션) -->
+  <!-- 실시간 상담 버튼 (폼 연결 + 강력한 임팩트 애니메이션) -->
   <div style="text-align:center;margin-bottom:17px;">
     <a href="https://d1mj9182.github.io/dangil-landing/" target="_blank" class="impact-btn">
       💬 <strong>365일 24시간 실시간 상담 바로가기</strong>
