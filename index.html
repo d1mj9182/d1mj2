@@ -1,24 +1,31 @@
 <!-- 당일민족 상세페이지 시작 -->
-<section style="max-width:620px;width:100%;margin:0 auto;padding:20px 0 40px 0;border-radius:18px;box-shadow:0 4px 20px rgba(0,0,0,0.06);background:#fff;font-family:'Apple SD Gothic Neo',sans-serif;overflow:hidden;position:relative;">
+<section class="d1mj-section">
   <style>
-    /* 모바일/데스크탑 반응형 */
-    section[style*="max-width:620px"] {
-      width: 100vw;
-      min-width: 0;
-      box-sizing: border-box;
-      border-radius: 0;
-      margin: 0;
-      padding-left: 0;
-      padding-right: 0;
+    .d1mj-section {
+      max-width:620px;
+      width:100%;
+      margin:40px auto;
+      padding:28px;
+      border-radius:18px;
+      box-shadow:0 4px 20px rgba(0,0,0,0.06);
+      background:#fff;
+      font-family:'Apple SD Gothic Neo',sans-serif;
+      overflow:hidden;
+      position:relative;
+      transition:all 0.2s;
     }
-    @media (max-width: 620px) {
-      section[style*="max-width:620px"] {
-        padding: 10px 0 30px 0;
-        border-radius: 0;
+    @media (max-width: 700px) {
+      .d1mj-section {
+        max-width:100vw !important;
+        width:100vw !important;
+        margin:0 !important;
+        padding:10px 0 20px 0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        min-height:100vh;
       }
     }
-
-    /* 당일민족 로고 네모 */
+    /* 로고 네모 */
     .ani-box {
       background: linear-gradient(92deg,#ffe6ed 25%,#fffde5 75%);
       border-radius:0 32px 32px 0;
@@ -27,18 +34,14 @@
       box-shadow:0 2px 12px #ffd7e84d,0 0 0 5px #ffe5ef inset;
       display:inline-block;overflow:hidden;position:relative;
     }
-
     /* 행사배지 */
     .ani-badge {
       background: linear-gradient(92deg,#e94e77 70%,#ffc1e1 100%);
       color:#fff;font-size:1rem;font-weight:800;
       padding:7px 22px 7px 18px;border-radius:22px;
-      margin-left:10px;
-      display:inline-block;
-      vertical-align:middle;
+      margin-left:10px;display:inline-block;vertical-align:middle;
     }
-
-    /* 강력혜택 강조 헤드라인 (배경 진하게, 텍스트 화이트) */
+    /* 현금혜택 강조 */
     .ani-cash {
       background: linear-gradient(90deg,#e94e77 0%,#fbb1b1 100%);
       padding:23px 10px 18px 10px;
@@ -55,41 +58,24 @@
       .ani-cash h2{font-size:1.06rem;}
       .ani-cash{padding:13px 5px 11px 5px;}
     }
-
-    /* 메인 타이틀, 서브 타이틀 */
+    /* 메인 타이틀 */
     .main-title {
       font-size:2.08rem;text-align:center;color:#232245;margin-bottom:13px;font-weight:900;letter-spacing:-1px;line-height:1.25;
     }
-    .main-title strong {
-      color:#e94e77;
-      font-size:2.1rem;
-      font-weight:900;
-    }
-    .main-sub {
-      font-size:1.18rem;
-      font-weight:700;
-      color:#e94e77;
-      margin-bottom:16px;
-      display:block;
-      text-align:center;
-    }
+    .main-title strong { color:#e94e77;font-size:2.1rem;font-weight:900;}
     @media (max-width:600px){
       .main-title{font-size:1.32rem;}
       .main-title strong{font-size:1.4rem;}
-      .main-sub{font-size:1rem;}
     }
-
     /* 특징/혜택 리스트 */
     .benefit-list {
       list-style:none;padding:0;margin:0 0 19px 0;font-size:1.05rem;color:#444;text-align:center;
     }
     .benefit-list li {
-      display:block;margin:7px 0;
-      text-align:center;
+      display:block;margin:7px 0;text-align:center;
     }
     .benefit-list .pink {color:#e94e77;font-weight:700;}
     .benefit-list .gray {color:#8b8db0;}
-
     /* 후기사진 */
     .review-wrap {display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;}
     .review-photo {
@@ -105,10 +91,9 @@
       box-shadow:0 2px 12px #ffe1ecb2; display:block;
     }
     @media (max-width:600px) {
-      .review-photo { min-width:85px; max-width:120px; height:62px;}
+      .review-photo { min-width:90px; max-width:110px; height:62px;}
       .review-photo img { width:50px;height:50px;}
     }
-
     /* 상담신청 버튼 */
     .impact-btn {
       background:linear-gradient(90deg,#fbb1b1 0%,#e94e77 100%);
@@ -156,7 +141,7 @@
   <!-- 현금혜택 헤드라인 -->
   <div class="ani-cash">
     <h2>
-      💰 최대 110만원 현금사은품2 당일지급<br>
+      💰 최대 110만원 현금사은품1 당일지급<br>
       24시간 실시간 상담 | 당일 설치 | 전국 어디든 설치 가능 | 초고속 현금지급
     </h2>
   </div>
