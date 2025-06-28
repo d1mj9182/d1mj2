@@ -150,7 +150,7 @@
       line-height: 1.08;
       display: block;
     }
-    /* 후기 네모박스 크게 + 모바일 꽉차게 */
+    /* 후기 네모박스 크게 + 투명도 없이 뚜렷하게 */
     .review-row {
       display:flex;
       flex-wrap:wrap;
@@ -159,7 +159,7 @@
       margin-bottom:38px;
     }
     .review-photo {
-      background:linear-gradient(135deg,#fff4f7 60%,#fffbe7 100%);
+      background: #fffbe7; /* 투명도 없이 완전 불투명 */
       box-shadow: 0 4px 18px #ffe1ec65;
       min-width:270px;max-width:270px;width:270px;height:270px;
       border-radius:26px;display:flex;
@@ -232,7 +232,7 @@
       </h2>
     </div>
     <h1 class="main-title-strong">
-      🏆 인터넷·TV 설치 성지
+      🏆 인터넷·TV 설치 성지2
     </h1>
     <div style="font-size:2.08rem;text-align:center;color:#232245;margin-bottom:16px;font-weight:900;letter-spacing:-1px;">
       <span style="color:#e94e77;">업계 최고 현금 사은품</span> 지금 바로 받으세요!
@@ -249,7 +249,7 @@
         </span>
       </li>
     </ul>
-    <!-- 후기 사진 4칸 네모(클릭 시 팝업) -->
+    <!-- 후기 사진 4칸 네모(클릭 시 팝업, 투명도 완전 제거) -->
     <div class="review-row">
       <div class="review-photo" onclick="openModal('review1.png')"><img src="review1.png" alt="후기1"></div>
       <div class="review-photo" onclick="openModal('review2.png')"><img src="review2.png" alt="후기2"></div>
