@@ -1,44 +1,69 @@
 <!-- 당일민족 상세페이지 시작 -->
-<section style="
-  width:100%;
-  max-width:740px;
-  margin:0 auto;
-  padding:40px 12px 28px 12px;
-  border-radius:18px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.06);
-  background: url('https://cdn.pixabay.com/photo/2016/03/23/19/44/money-1271761_1280.jpg') center/cover no-repeat,#fff;
-  font-family:'Apple SD Gothic Neo',sans-serif;
-  overflow:hidden;
-  position:relative;">
+<section class="dangil-wrap">
   <style>
-    section[style*="max-width:740px"]::before {
-      content: '';
-      position: absolute; z-index:0; left:0; top:0; width:100%; height:100%;
-      background: rgba(255,255,255,0.88);
-      backdrop-filter: blur(4px);
-      pointer-events:none;
+    /* 최상위 full 반응형 */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      box-sizing: border-box;
+      background: #fff;
     }
+    .dangil-wrap {
+      max-width: 620px;
+      min-width: 0;
+      width: 100vw;
+      margin: 0 auto;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      background: url('https://cdn.pixabay.com/photo/2016/03/23/19/44/money-1271761_1280.jpg') center/cover no-repeat, #fff;
+      font-family:'Apple SD Gothic Neo',sans-serif;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+    }
+    /* 배경 오버레이+블러 */
+    .dangil-wrap::before {
+      content: '';
+      position: absolute; z-index: 0; left: 0; top: 0; width: 100%; height: 100%;
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(4px);
+      pointer-events: none;
+    }
+    /* 데스크탑용 */
+    @media (min-width: 600px) {
+      .dangil-wrap {
+        min-height: 100vh;
+      }
+    }
+    /* 모바일용 */
+    @media (max-width: 599px) {
+      .dangil-wrap {
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+        padding: 13px 4vw 18vw 4vw;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+    /* 내부 요소 z-index */
+    .dangil-wrap > * { position: relative; z-index: 2;}
+    /* 기존 디자인 그대로 */
     .ani-box {
       background: linear-gradient(92deg,#ffe6ed 25%,#fffde5 75%);
       border-radius:0 32px 32px 0;
-      padding:14px 42px 14px 28px;
-      font-size:clamp(1.12rem,4vw,2.1rem);
-      font-weight:900;letter-spacing:-1.2px;
-      color:#222;
+      padding:9px 38px 9px 30px;
+      font-size:1.38rem;font-weight:900;letter-spacing:-1.2px;
       box-shadow:0 2px 12px #ffd7e84d,0 0 0 5px #ffe5ef inset;
       position:relative; display:inline-block;overflow:hidden;
       animation: shineBox 2.4s cubic-bezier(.6,.5,.38,1) infinite alternate, 
                  borderWave 1.5s infinite alternate;
-      text-shadow:0 1.2px 3px #fff;
     }
-    @keyframes shineBox {
-      0% { background-position:0% 50%; }
-      100% { background-position:100% 50%; }
-    }
-    @keyframes borderWave {
-      0% { box-shadow:0 2px 12px #ffd7e84d,0 0 0 5px #ffe5ef inset;}
-      100% { box-shadow:0 2px 24px #ffd7e8aa,0 0 0 13px #ffadc55c inset;}
-    }
+    @keyframes shineBox {0% { background-position:0% 50%; }100% { background-position:100% 50%; }}
+    @keyframes borderWave {0% { box-shadow:0 2px 12px #ffd7e84d,0 0 0 5px #ffe5ef inset;}100% { box-shadow:0 2px 24px #ffd7e8aa,0 0 0 13px #ffadc55c inset;}}
     .ani-box::before {
       content:'';
       position:absolute;top:0;left:-40%;width:140%;height:100%;
@@ -47,26 +72,16 @@
       animation: boxLightMove 2.1s infinite linear;
       pointer-events:none;
     }
-    @keyframes boxLightMove {
-      0% { left:-40%;}
-      100% { left:60%;}
-    }
+    @keyframes boxLightMove {0% { left:-40%;}100% { left:60%;}}
     .ani-cash {
       background: linear-gradient(90deg,#e94e77 0%,#fbb1b1 100%);
-      padding:clamp(18px,5vw,42px);
-      border-radius:16px;margin-bottom:clamp(20px,5vw,48px);
+      padding:20px 15px 15px 15px;
+      border-radius:16px;margin-bottom:30px;
       box-shadow:0 2px 16px #e94e7762; border:2px dashed #fff4f7;
       position:relative;overflow:hidden;
       animation: cashMove 2.8s infinite alternate;
-      color:#fff;
-      font-weight:900;
-      text-align:center;
-      text-shadow:0 3px 18px #e94e77ad, 0 2px 2px #e94e772c;
     }
-    @keyframes cashMove {
-      0% { transform: scale(1) translateY(0);}
-      100% { transform: scale(1.027) translateY(-3px);}
-    }
+    @keyframes cashMove {0% { transform: scale(1) translateY(0);}100% { transform: scale(1.027) translateY(-3px);}}
     .ani-cash::before {
       content:'';position:absolute;left:-40%;top:0;width:130%;height:100%;
       background:linear-gradient(120deg,rgba(255,255,255,0.05) 45%,rgba(255,255,255,0.85) 67%,rgba(255,255,255,0) 95%);
@@ -74,49 +89,27 @@
       animation: cashShine 2.6s infinite linear;
       pointer-events:none;
     }
-    @keyframes cashShine {
-      0% { left:-40%;}
-      100% { left:70%;}
-    }
+    @keyframes cashShine {0% { left:-40%;}100% { left:70%;}}
     .ani-badge {
       background: linear-gradient(92deg,#e94e77 70%,#ffc1e1 100%);
-      color:#fff;
-      font-size:clamp(1.01rem,3.6vw,1.24rem);
-      font-weight:800;
-      padding:8px 26px 8px 19px;
-      border-radius:22px;
-      vertical-align:middle;
-      box-shadow:0 2px 10px #e94e7766;
+      color:#fff;font-size:1rem;font-weight:800;
+      padding:7px 22px 7px 18px;border-radius:22px;
+      vertical-align:middle;box-shadow:0 2px 10px #e94e7766;
       display:inline-block;
-      margin-left:12px;
+      margin-left:10px;
       position:relative;
       animation: badgeGlow 0.8s infinite alternate, badgeShake 2.1s infinite;
-      text-shadow:0 1.2px 6px #ed416c8c;
     }
-    @keyframes badgeGlow {
-      0% {box-shadow:0 2px 10px #e94e7766;}
-      100% {box-shadow:0 6px 18px #ffd7e88e;}
-    }
-    @keyframes badgeShake {
-      0%,100% {transform:translateY(0) rotate(-1deg);}
-      60% {transform:translateY(-1.5px) rotate(1.5deg);}
-      90% {transform:translateY(2px) rotate(-2deg);}
-    }
+    @keyframes badgeGlow {0% {box-shadow:0 2px 10px #e94e7766;}100% {box-shadow:0 6px 18px #ffd7e88e;}}
+    @keyframes badgeShake {0%,100% {transform:translateY(0) rotate(-1deg);}60% {transform:translateY(-1.5px) rotate(1.5deg);}90% {transform:translateY(2px) rotate(-2deg);}}
     .impact-btn {
       background:linear-gradient(90deg,#fbb1b1 0%,#e94e77 100%);
       color:#fff;border-radius:42px;box-shadow:0 0 34px #e94e77cc, 0 0px 0px #fff;
-      display:inline-block;padding:clamp(18px,4vw,32px) clamp(38px,12vw,75px);
-      font-size:clamp(1.22rem,5vw,1.6rem);
-      font-weight:900;letter-spacing:-0.5px;
+      display:inline-block;padding:22px 54px;font-size:1.29rem;font-weight:900;letter-spacing:-0.5px;
       position:relative;overflow:hidden;border:none;outline:none;transition:background 0.24s,box-shadow 0.2s;cursor:pointer;
       animation: pulseWave 1.5s infinite cubic-bezier(.4,0,.6,1);
-      text-shadow:0 2px 14px #e94e77ad;
     }
-    @keyframes pulseWave {
-      0% {box-shadow:0 0 20px #e94e77cc, 0 0 0 #fff;transform:scale(1);}
-      60% {box-shadow:0 0 45px #ffe1ecf3,0 0 36px #e94e77cc;transform:scale(1.08);}
-      100% {box-shadow:0 0 20px #e94e77cc, 0 0 0 #fff;transform:scale(1);}
-    }
+    @keyframes pulseWave {0% {box-shadow:0 0 20px #e94e77cc, 0 0 0 #fff;transform:scale(1);}60% {box-shadow:0 0 45px #ffe1ecf3,0 0 36px #e94e77cc;transform:scale(1.08);}100% {box-shadow:0 0 20px #e94e77cc, 0 0 0 #fff;transform:scale(1);}}
     .impact-btn::after {
       content: '';
       position: absolute; left: 50%; top: 50%; width: 140%; height: 140%;
@@ -126,169 +119,98 @@
       animation: waveFlash 1.6s infinite;
       pointer-events: none;
     }
-    @keyframes waveFlash {
-      0% { opacity: 0.7; transform: translate(-50%,-50%) scale(0.7);}
-      60% { opacity: 1; transform: translate(-50%,-50%) scale(1.15);}
-      100% { opacity: 0.1; transform: translate(-50%,-50%) scale(1.6);}
-    }
+    @keyframes waveFlash {0% { opacity: 0.7; transform: translate(-50%,-50%) scale(0.7);}60% { opacity: 1; transform: translate(-50%,-50%) scale(1.15);}100% { opacity: 0.1; transform: translate(-50%,-50%) scale(1.6);}}
     .impact-btn:hover {
       background:linear-gradient(90deg,#e94e77 10%,#fbb1b1 90%);
       box-shadow:0 0 65px #e94e77dd, 0 0 42px #fff7,0 0 22px #e94e77bb;
       animation: btnVibe 0.13s infinite alternate, pulseWave 1.5s infinite cubic-bezier(.4,0,.6,1);
     }
-    @keyframes btnVibe {
-      0% {transform:translateY(0) scale(1.08);}
-      100% {transform:translateY(-2.2px) scale(0.98);}
-    }
+    @keyframes btnVibe {0% {transform:translateY(0) scale(1.08);}100% {transform:translateY(-2.2px) scale(0.98);}}
     .review-photo {
       background:linear-gradient(135deg,#fff4f7 60%,#fffbe7 100%);
-      box-shadow:0 4px 16px #ffe1ec65;
-      width:clamp(92px, 25vw, 170px);
-      height:clamp(65px, 25vw, 116px);
-      border-radius:18px;margin:0 10px 16px 10px;display:flex;
+      box-shadow: 0 4px 16px #ffe1ec65;
+      min-width:150px;max-width:170px;width:100%;height:116px;
+      border-radius:18px;margin:0 9px 15px 9px;display:flex;
       align-items:center;justify-content:center;position:relative;
       overflow:hidden;
       border:2.5px solid #ffe5ef;
     }
     .review-photo img {
-      width: 80%; height: 80%; object-fit: cover; border-radius:14px;
+      width: 94px; height: 94px; object-fit: cover; border-radius:14px;
       box-shadow:0 2px 12px #ffe1ecb2; display:block;
     }
-    ul {
-      list-style:none;
-      padding:0;
-      margin:0 0 28px 0;
-      font-size:clamp(1.05rem, 3.7vw, 1.21rem);
-      color:#35334d;
-      text-align:center;
-      font-weight:700;
-    }
-    /* ******** 아래 부분이 흐릿했던 부분, 진하게 교정 ******** */
-    .feature-row {
-      margin: 16px 0 22px 0;
-      text-align: center;
-    }
-    .feature-bullet {
-      display: inline-block;
-      background: #fff;
-      color: #e94e77;
-      border-radius: 22px;
-      padding: 10px 21px;
-      font-size: clamp(1.07rem, 3.9vw, 1.24rem);
-      font-weight: 900;
-      box-shadow:0 1px 6px #ffd4e3a1;
-      margin: 0 10px 10px 10px;
-      line-height:1.5;
-      /* 아래 효과 제거 */
-      filter: none;
-      opacity: 1;
-      text-shadow: none;
-    }
-    .feature-bullet2 {
-      display: inline-block;
-      background: #f7f8fa;
-      color: #38258b;
-      border-radius: 22px;
-      padding: 10px 21px;
-      font-size: clamp(1.07rem, 3.9vw, 1.24rem);
-      font-weight: 900;
-      margin: 0 10px 10px 10px;
-      line-height:1.5;
-      filter: none;
-      opacity: 1;
-      text-shadow: none;
-    }
-    /* ***************************** */
-    @media (max-width: 700px) {
-      section[style*="max-width:740px"] {
-        padding:7vw 2vw 5vw 2vw;
-        max-width:99vw;
-      }
-      .ani-box { font-size:6vw; padding:3vw 7vw;}
-      .ani-badge { font-size:4vw;}
-      .ani-cash h2 { font-size:5vw;}
-      .ani-cash h2 span { font-size:6vw;}
-      h1 { font-size:7vw; margin:6vw 0 4vw 0;}
-      .impact-btn { font-size:5vw; padding:5vw 10vw;}
-      .review-photo { min-width:72px; min-height:56px;}
-      ul { font-size:4vw;}
-      strong { font-size:4.7vw !important;}
-    }
-    @media (min-width: 701px) {
-      .ani-box { font-size:1.54rem; }
-      .ani-badge { font-size:1.09rem; }
-      .ani-cash h2 { font-size:1.35rem; }
-      .ani-cash h2 span { font-size:1.7rem; }
-      h1 { font-size:2.14rem; }
-      .impact-btn { font-size:1.36rem; }
-      strong { font-size:1.19rem !important; }
-      .review-photo { min-width:155px; min-height:120px;}
+    @media (max-width:600px) {
+      .review-photo { min-width:90px; max-width:120px; height:78px;}
+      .review-photo img { width:60px;height:60px;}
     }
   </style>
-  <!-- 상단 영역 -->
-  <div style="z-index:2;position:relative;text-align:center;margin-bottom:20px;">
+  <!-- 상단 축제/현금/이벤트/금가루 배경 그래픽 -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:145px;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(circle at 10% 10%,#ffe6ed 30%,transparent 70%), 
+      radial-gradient(circle at 90% 15%,#ffd6e7 30%,transparent 70%),
+      url('https://cdn.pixabay.com/photo/2016/03/23/19/44/money-1271761_1280.jpg') repeat-x,
+      url('https://cdn.pixabay.com/photo/2013/07/12/15/55/confetti-150826_1280.png') repeat-x;
+    background-size:cover,cover,310px 130px,220px 110px;
+    opacity:0.77;">
+  </div>
+  <!-- 당일민족 로고/회사명 및 행사배지 + 애니메이션 -->
+  <div style="z-index:2;position:relative;text-align:center;margin-bottom:10px;">
     <span class="ani-box">
-      <img src="https://dummyimage.com/32x32/ffdde6/fff&text=🔥" alt="로고" style="width:36px;height:36px;vertical-align:middle;margin-right:7px;border-radius:40px;border:2px solid #fff;">
+      <img src="https://dummyimage.com/32x32/ffdde6/fff&text=🔥" alt="로고" style="width:32px;height:32px;vertical-align:middle;margin-right:6px;border-radius:40px;border:2px solid #fff;">
       <span style="vertical-align:middle;">당일민족</span>
     </span>
     <span class="ani-badge">인터넷·TV 사은품 축제</span>
   </div>
-  <!-- 헤드라인 -->
+  <!-- 강력 혜택 강조 헤드라인 (더 부각/배경 강조) -->
   <div class="ani-cash">
-    <h2 style="margin:0;">
-      💰 <span>최대 110만원 현금사은품 <span style="text-shadow:0 2px 12px #ffdae3;">당일지급</span></span><br>
-      <span style="display:inline-block;font-weight:700;margin-top:9px;">
+    <h2 style="margin:0;color:#fff;font-size:1.35rem;letter-spacing:-1.2px;text-align:center;font-weight:900;text-shadow:0 2px 18px #e94e77ad;">
+      💰 <span style="font-size:1.8rem;">최대 110만원 현금사은품 <span style="text-shadow:0 2px 12px #ffdae3;">당일지급</span></span><br>
+      <span style="display:inline-block;font-size:1.11rem;font-weight:700;margin-top:7px;">
         24시간 실시간 상담&nbsp;|&nbsp;당일 설치&nbsp;|&nbsp;전국 어디든 설치 가능&nbsp;|&nbsp;초고속 현금지급
       </span>
     </h2>
   </div>
-  <h1 style="z-index:2;position:relative;text-align:center;color:#232245;margin-bottom:18px;font-weight:900;letter-spacing:-1px;">
+  <h1 style="z-index:2;position:relative;font-size:2.08rem;text-align:center;color:#232245;margin-bottom:16px;font-weight:900;letter-spacing:-1px;">
     🏆 인터넷·TV 설치 성지<br>
     <span style="color:#e94e77;">업계 최고 현금 사은품</span> 지금 바로 받으세요!
   </h1>
-  <!-- **중간 설명/특징 박스, 명확하게 표시** -->
-  <div class="feature-row">
-    <span class="feature-bullet">
-      ✔️ 3년 이상 사용고객 · 신규 · 이사 · 사업장 · 원룸 · 모텔 · 호텔 전부 환영
-    </span>
-    <span class="feature-bullet2">
-      ✔️ 1:1 맞춤 컨설팅 · 공식요금비교 · 현금혜택 안내
-    </span>
-  </div>
-  <!-- 후기 사진 3칸 -->
-  <div style="z-index:2;position:relative;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;">
+  <ul style="list-style:none;padding:0;margin:0 0 23px 0;font-size:1rem;color:#444;text-align:center;z-index:2;position:relative;">
+    <li style="display:inline-block;margin:8px 12px;">
+      <span style="background:#fff4f7;color:#e94e77;padding:7px 17px;border-radius:20px;font-weight:700;font-size:1.04rem;box-shadow:0 1px 6px #ffe1ec8c;">
+        ✔️ 3년 이상 사용고객 · 신규 · 이사 · 사업장 · 원룸 · 모텔 · 호텔 전부 환영
+      </span>
+    </li>
+    <li style="display:inline-block;margin:8px 12px;">
+      <span style="background:#f7f8fa;color:#8b8db0;padding:7px 17px;border-radius:20px;font-weight:700;font-size:1.04rem;">
+        ✔️ 1:1 맞춤 컨설팅 · 공식요금비교 · 현금혜택 안내
+      </span>
+    </li>
+  </ul>
+  <!-- 후기 사진 3칸 네모(글자 없이, 실제 후기 사진만!) -->
+  <div style="z-index:2;position:relative;display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;">
     <div class="review-photo"><img src="**여기1번_후기사진_URL**" alt="후기1"></div>
     <div class="review-photo"><img src="**여기2번_후기사진_URL**" alt="후기2"></div>
     <div class="review-photo"><img src="**여기3번_후기사진_URL**" alt="후기3"></div>
   </div>
-  <!-- 상담 버튼 -->
-  <div style="z-index:2;position:relative;text-align:center;margin-bottom:27px;">
+  <!-- 실시간 상담 버튼 (폼 연결 + 강력한 임팩트 애니메이션) -->
+  <div style="z-index:2;position:relative;text-align:center;margin-bottom:24px;">
     <a href="https://d1mj9182.github.io/dangil-landing/" target="_blank" class="impact-btn">
       💬 365일 24시간 <strong>실시간 상담 바로가기</strong>
     </a>
   </div>
-  <div style="z-index:2;position:relative;text-align:center;margin-bottom:36px;">
-    <strong style="color:#1a1744;">최고 혜택, 지금 바로 무료 상담받기!</strong>
+  <div style="z-index:2;position:relative;text-align:center;margin-bottom:34px;">
+    <strong style="font-size:1.17rem;color:#1a1744;">최고 혜택, 지금 바로 무료 상담받기!</strong><br>
+    <!-- 폼이 이 아래에 삽입됩니다 -->
   </div>
-  <!-- 하단 안내 -->
-  <div style="
-    background: #fff3f7;
-    border: 1.5px solid #ffd2e2;
-    color: #c91d55;
-    font-weight: 900;
-    font-size: clamp(1.17rem, 3vw, 1.54rem);
-    padding: 34px 8px 22px 8px;
-    border-radius: 14px;
-    margin: 35px auto 10px auto;
-    text-align: center;
-    box-shadow:0 2px 10px #fbb1b133;
-    max-width: 620px;
-    line-height: 1.54;
-    letter-spacing:-1.2px;
-  ">
-    유심 · 정수기 · CCTV까지 원스톱 설치!<br>
-    <span style="font-size: clamp(1.08rem,2vw,1.21rem); color: #bf2358; font-weight:700;">
-      SK · KT · LG · KT스카이라이프 · LG헬로비전 공식 취급
+  <!-- 하단 분홍박스: 모든 서비스/브랜드 한눈에 -->
+  <div style="background:linear-gradient(90deg,#ffecf2 0%,#ffe1ec 100%);
+    padding:19px 7px 13px 7px;border-radius:12px;margin:0 auto 2px auto;text-align:center;box-shadow:0 2px 10px #fbb1b133;z-index:2;position:relative;">
+    <span style="color:#e94e77;font-size:1.15rem;font-weight:800;letter-spacing:-1px;display:inline-block;margin-bottom:7px;">
+      유심 · 정수기 · CCTV까지 원스톱 설치!<br>
+      <span style="font-size:0.99rem;color:#e94e77;font-weight:700;">
+        SK · KT · LG · KT스카이라이프 · LG헬로비전 공식 취급
+      </span>
     </span>
   </div>
 </section>
