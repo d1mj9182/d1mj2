@@ -150,12 +150,19 @@
       line-height: 1.08;
       display: block;
     }
-    /* --- 후기 네모박스, 더 크게 --- */
+    /* 후기 네모박스 크게 + 모바일 꽉차게 */
+    .review-row {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:28px;
+      margin-bottom:38px;
+    }
     .review-photo {
       background:linear-gradient(135deg,#fff4f7 60%,#fffbe7 100%);
       box-shadow: 0 4px 18px #ffe1ec65;
       min-width:270px;max-width:270px;width:270px;height:270px;
-      border-radius:26px;margin:0 22px 28px 22px;display:flex;
+      border-radius:26px;display:flex;
       align-items:center;justify-content:center;position:relative;
       overflow:hidden;
       border:4px solid #ffe5ef;
@@ -165,8 +172,8 @@
     .review-photo img {
       width: 230px; height: 230px; object-fit: cover; border-radius:22px;
       box-shadow:0 4px 24px #ffe1ecb2; display:block;
-      transition: box-shadow 0.2s;
       background:#fafbfc;
+      transition: box-shadow 0.2s;
     }
     .review-photo:hover {
       box-shadow: 0 8px 32px #e94e77bb, 0 0 0 #fff;
@@ -175,21 +182,23 @@
     .review-photo:hover img {
       box-shadow: 0 4px 32px #ffd7e89a;
     }
-    /* 반응형 모바일 */
-    @media (max-width:1200px) {
+    /* 모바일 - 후기 네모박스 한 줄 하나씩 크게 */
+    @media (max-width:900px) {
       .main-inner { max-width: 100vw; }
-      .review-photo { min-width:180px; max-width:44vw; width:44vw; height:44vw; max-height:210px;}
-      .review-photo img { width:38vw;height:38vw;max-width:185px;max-height:185px;}
+      .review-row { gap:16px;}
+      .review-photo {min-width:46vw;max-width:96vw;width:96vw;height:44vw;max-height:220px;}
+      .review-photo img {width:90vw;height:38vw;max-width:210px;max-height:160px;}
     }
     @media (max-width:600px) {
       .main-inner { max-width: 100vw; padding: 3vw 0 0 0; }
-      .review-photo { min-width:80px; max-width:92vw; width:92vw; height:90vw; max-height:170px;}
-      .review-photo img { width:80vw;height:78vw;max-width:150px;max-height:150px;}
-      .ani-cash h2 { font-size: 1.29rem !important;}
-      .ani-cash h2 span { font-size: 1.13rem !important;}
+      .review-row {gap:10px;}
+      .review-photo {min-width:92vw;max-width:92vw;width:92vw;height:90vw;max-height:175px;}
+      .review-photo img {width:85vw;height:85vw;max-width:150px;max-height:150px;}
+      .ani-cash h2 { font-size: 1.44rem !important;}
+      .ani-cash h2 span { font-size: 1.09rem !important;}
       .ani-cash h2 .small-info { font-size: 0.82rem !important; }
-      .main-title-strong { font-size: 1.25rem !important;}
-      .impact-btn { font-size: 0.87rem; padding: 11px 0;}
+      .main-title-strong { font-size: 1.15rem !important;}
+      .impact-btn { font-size: 1.07rem; padding: 13px 0;}
     }
     /* --- 모달 팝업 --- */
     .modal-bg {
@@ -216,14 +225,14 @@
     </div>
     <div class="ani-cash" style="margin-top:10px;">
       <h2>
-        💰 <span>25년 7월 110만원 현금사은품 <span style="text-shadow:0 2px 12px #ffdae3;">당일지급</span></span><br>
+        💰 <span>최대 110만원 현금사은품 <span style="text-shadow:0 2px 12px #ffdae3;">당일지급</span></span><br>
         <span class="small-info">
           24시간 실시간 상담&nbsp;|&nbsp;당일 설치&nbsp;|&nbsp;전국 어디든 설치 가능&nbsp;|&nbsp;초고속 현금지급
         </span>
       </h2>
     </div>
     <h1 class="main-title-strong">
-      🏆 인터넷·TV 설치 성지
+      🏆 인터넷·TV 설치 성지2
     </h1>
     <div style="font-size:2.08rem;text-align:center;color:#232245;margin-bottom:16px;font-weight:900;letter-spacing:-1px;">
       <span style="color:#e94e77;">업계 최고 현금 사은품</span> 지금 바로 받으세요!
@@ -241,7 +250,7 @@
       </li>
     </ul>
     <!-- 후기 사진 4칸 네모(클릭 시 팝업) -->
-    <div style="z-index:2;position:relative;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:38px;">
+    <div class="review-row">
       <div class="review-photo" onclick="openModal('review1.png')"><img src="review1.png" alt="후기1"></div>
       <div class="review-photo" onclick="openModal('review2.png')"><img src="review2.png" alt="후기2"></div>
       <div class="review-photo" onclick="openModal('review3.png')"><img src="review3.png" alt="후기3"></div>
@@ -278,13 +287,11 @@
       document.getElementById('modal-bg').classList.add('active');
     }
     function closeModal(e) {
-      // 모달 외부 or 닫기버튼 누르면 닫기
       if (e.target.id === 'modal-bg' || e.target.classList.contains('modal-close')) {
         document.getElementById('modal-bg').classList.remove('active');
         document.getElementById('modal-img').src = '';
       }
     }
-    // ESC로도 닫기
     document.addEventListener('keydown', function(e){
       if(e.key === "Escape") closeModal({target:{id:'modal-bg'}});
     });
