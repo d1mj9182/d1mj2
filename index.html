@@ -163,6 +163,42 @@
       text-align:center;
       font-weight:700;
     }
+    /* ******** 아래 부분이 흐릿했던 부분, 진하게 교정 ******** */
+    .feature-row {
+      margin: 16px 0 22px 0;
+      text-align: center;
+    }
+    .feature-bullet {
+      display: inline-block;
+      background: #fff;
+      color: #e94e77;
+      border-radius: 22px;
+      padding: 10px 21px;
+      font-size: clamp(1.07rem, 3.9vw, 1.24rem);
+      font-weight: 900;
+      box-shadow:0 1px 6px #ffd4e3a1;
+      margin: 0 10px 10px 10px;
+      line-height:1.5;
+      /* 아래 효과 제거 */
+      filter: none;
+      opacity: 1;
+      text-shadow: none;
+    }
+    .feature-bullet2 {
+      display: inline-block;
+      background: #f7f8fa;
+      color: #38258b;
+      border-radius: 22px;
+      padding: 10px 21px;
+      font-size: clamp(1.07rem, 3.9vw, 1.24rem);
+      font-weight: 900;
+      margin: 0 10px 10px 10px;
+      line-height:1.5;
+      filter: none;
+      opacity: 1;
+      text-shadow: none;
+    }
+    /* ***************************** */
     @media (max-width: 700px) {
       section[style*="max-width:740px"] {
         padding:7vw 2vw 5vw 2vw;
@@ -200,7 +236,7 @@
   <!-- 헤드라인 -->
   <div class="ani-cash">
     <h2 style="margin:0;">
-      💰 <span>최대 110만원 현금사은품1 <span style="text-shadow:0 2px 12px #ffdae3;">당일지급</span></span><br>
+      💰 <span>최대 110만원 현금사은품 <span style="text-shadow:0 2px 12px #ffdae3;">당일지급</span></span><br>
       <span style="display:inline-block;font-weight:700;margin-top:9px;">
         24시간 실시간 상담&nbsp;|&nbsp;당일 설치&nbsp;|&nbsp;전국 어디든 설치 가능&nbsp;|&nbsp;초고속 현금지급
       </span>
@@ -210,18 +246,15 @@
     🏆 인터넷·TV 설치 성지<br>
     <span style="color:#e94e77;">업계 최고 현금 사은품</span> 지금 바로 받으세요!
   </h1>
-  <ul>
-    <li style="display:inline-block;margin:10px 14px;">
-      <span style="background:#fff4f7;color:#e94e77;padding:8px 19px;border-radius:20px;font-weight:700;box-shadow:0 1px 6px #ffe1ec8c;">
-        ✔️ 3년 이상 사용고객 · 신규 · 이사 · 사업장 · 원룸 · 모텔 · 호텔 전부 환영
-      </span>
-    </li>
-    <li style="display:inline-block;margin:10px 14px;">
-      <span style="background:#f7f8fa;color:#8b8db0;padding:8px 19px;border-radius:20px;font-weight:700;">
-        ✔️ 1:1 맞춤 컨설팅 · 공식요금비교 · 현금혜택 안내
-      </span>
-    </li>
-  </ul>
+  <!-- **중간 설명/특징 박스, 명확하게 표시** -->
+  <div class="feature-row">
+    <span class="feature-bullet">
+      ✔️ 3년 이상 사용고객 · 신규 · 이사 · 사업장 · 원룸 · 모텔 · 호텔 전부 환영
+    </span>
+    <span class="feature-bullet2">
+      ✔️ 1:1 맞춤 컨설팅 · 공식요금비교 · 현금혜택 안내
+    </span>
+  </div>
   <!-- 후기 사진 3칸 -->
   <div style="z-index:2;position:relative;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;">
     <div class="review-photo"><img src="**여기1번_후기사진_URL**" alt="후기1"></div>
