@@ -1,170 +1,209 @@
 <!-- 당일민족 상세페이지 시작 -->
-<section class="d1mj-section">
+<section id="landing-main" style="width:100vw;min-height:100vh;box-sizing:border-box;overflow:hidden;position:relative;font-family:'Apple SD Gothic Neo',sans-serif;margin:0;padding:0;">
   <style>
-    .d1mj-section {
-      max-width:620px;
-      width:100%;
-      margin:40px auto;
-      padding:28px;
-      border-radius:18px;
-      box-shadow:0 4px 20px rgba(0,0,0,0.06);
-      background:#fff;
-      font-family:'Apple SD Gothic Neo',sans-serif;
-      overflow:hidden;
-      position:relative;
+    #landing-main {
+      /* 달러 심볼 전체 배경(연하게) */
+      background: 
+        linear-gradient(0deg,rgba(255,255,255,0.92),rgba(255,255,255,0.89)),
+        url('./images/dollar-1319603_1920.png') center center / cover no-repeat;
+      /* 모바일 최적화 */
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    @media (max-width:700px) {
-      .d1mj-section {
-        max-width:100vw !important;
-        width:100vw !important;
-        min-width:100vw !important;
-        margin:0 !important;
-        padding:0 0 20px 0 !important;
-        border-radius:0 !important;
-        box-shadow:none !important;
-      }
-      .ani-box,
-      .ani-badge,
-      .ani-cash,
-      .main-title,
-      .benefit-list,
-      .impact-btn,
-      .service-box {
-        font-size:1.13rem !important;
-      }
-      .ani-cash h2 {font-size:1.08rem !important;}
-      .main-title {font-size:1.28rem !important;}
-      .review-photo {min-width:90px;max-width:110px;height:62px;}
-      .review-photo img {width:50px;height:50px;}
-      .impact-btn {padding:15px 0;font-size:1.06rem;}
+    .falling-money-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none; z-index: 1;
+      opacity: 0.27;
+      background: url('./images/money-2082383_1920.png') repeat;
+      background-size: 650px auto;
+      animation: moneyfall 14s linear infinite;
+      will-change: background-position;
+      /* 떨어지는 달러 이미지 (여러장) */
     }
-    /* 로고 네모 */
+    @keyframes moneyfall {
+      0% {background-position: 0 0;}
+      100% {background-position: 0 750px;}
+    }
+    .main-inner {
+      position: relative;
+      z-index: 2;
+      width: 100vw;
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 28px 8px 0 8px;
+      box-sizing: border-box;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.94);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    /* 내부 기존 스타일 유지 */
     .ani-box {
       background: linear-gradient(92deg,#ffe6ed 25%,#fffde5 75%);
       border-radius:0 32px 32px 0;
       padding:9px 38px 9px 30px;
       font-size:1.38rem;font-weight:900;letter-spacing:-1.2px;
       box-shadow:0 2px 12px #ffd7e84d,0 0 0 5px #ffe5ef inset;
-      display:inline-block;overflow:hidden;position:relative;
+      position:relative; display:inline-block;overflow:hidden;
+      animation: shineBox 2.4s cubic-bezier(.6,.5,.38,1) infinite alternate, 
+                 borderWave 1.5s infinite alternate;
     }
+    @keyframes shineBox { 0% { background-position:0% 50%; } 100% { background-position:100% 50%; }}
+    @keyframes borderWave {0% { box-shadow:0 2px 12px #ffd7e84d,0 0 0 5px #ffe5ef inset;} 100% { box-shadow:0 2px 24px #ffd7e8aa,0 0 0 13px #ffadc55c inset;}}
+    .ani-box::before {
+      content:'';
+      position:absolute;top:0;left:-40%;width:140%;height:100%;
+      background:linear-gradient(90deg,rgba(255,255,255,0.12) 60%,rgba(255,255,255,0.7) 80%,rgba(255,255,255,0) 95%);
+      filter:blur(2px);
+      animation: boxLightMove 2.1s infinite linear;
+      pointer-events:none;
+    }
+    @keyframes boxLightMove { 0% { left:-40%;} 100% { left:60%;} }
+    .ani-cash {
+      background: linear-gradient(90deg,#e94e77 0%,#fbb1b1 100%);
+      padding:20px 15px 15px 15px;
+      border-radius:16px;margin-bottom:30px;
+      box-shadow:0 2px 16px #e94e7762; border:2px dashed #fff4f7;
+      position:relative;overflow:hidden;
+      animation: cashMove 2.8s infinite alternate;
+    }
+    @keyframes cashMove { 0% { transform: scale(1) translateY(0);} 100% { transform: scale(1.027) translateY(-3px);} }
+    .ani-cash::before {
+      content:'';position:absolute;left:-40%;top:0;width:130%;height:100%;
+      background:linear-gradient(120deg,rgba(255,255,255,0.05) 45%,rgba(255,255,255,0.85) 67%,rgba(255,255,255,0) 95%);
+      filter:blur(1.5px);
+      animation: cashShine 2.6s infinite linear;
+      pointer-events:none;
+    }
+    @keyframes cashShine { 0% { left:-40%;} 100% { left:70%;}}
     .ani-badge {
       background: linear-gradient(92deg,#e94e77 70%,#ffc1e1 100%);
       color:#fff;font-size:1rem;font-weight:800;
       padding:7px 22px 7px 18px;border-radius:22px;
-      margin-left:10px;display:inline-block;vertical-align:middle;
+      vertical-align:middle;box-shadow:0 2px 10px #e94e7766;
+      display:inline-block;
+      margin-left:10px;
+      position:relative;
+      animation: badgeGlow 0.8s infinite alternate, badgeShake 2.1s infinite;
     }
-    .ani-cash {
-      background: linear-gradient(90deg,#e94e77 0%,#fbb1b1 100%);
-      padding:23px 10px 18px 10px;
-      border-radius:16px;margin-bottom:30px;margin-top:16px;
-      box-shadow:0 2px 16px #e94e7762; border:2px dashed #fff4f7;
-      text-align:center;
-    }
-    .ani-cash h2 {
-      margin:0;color:#fff;font-size:1.3rem;letter-spacing:-1.2px;text-align:center;font-weight:900;text-shadow:0 2px 18px #e94e77ad;
-      line-height:1.5;
-    }
-    .ani-cash h2 span { font-size:1.18rem; }
-    .main-title {
-      font-size:2.08rem;text-align:center;color:#232245;margin-bottom:13px;font-weight:900;letter-spacing:-1px;line-height:1.25;
-    }
-    .main-title strong { color:#e94e77;font-size:2.1rem;font-weight:900;}
-    .benefit-list {
-      list-style:none;padding:0;margin:0 0 19px 0;font-size:1.05rem;color:#444;text-align:center;
-    }
-    .benefit-list li {
-      display:block;margin:7px 0;text-align:center;
-    }
-    .benefit-list .pink {color:#e94e77;font-weight:700;}
-    .benefit-list .gray {color:#8b8db0;}
-    .review-wrap {display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;}
-    .review-photo {
-      background:linear-gradient(135deg,#fff4f7 60%,#fffbe7 100%);
-      box-shadow: 0 4px 16px #ffe1ec65;
-      min-width:110px;max-width:170px;width:30vw;height:90px;
-      border-radius:18px;margin:0 9px 13px 9px;display:flex;
-      align-items:center;justify-content:center;position:relative;
-      overflow:hidden;border:2.5px solid #ffe5ef;
-    }
-    .review-photo img {
-      width: 80px; height: 80px; object-fit: cover; border-radius:14px;
-      box-shadow:0 2px 12px #ffe1ecb2; display:block;
-    }
+    @keyframes badgeGlow {0% {box-shadow:0 2px 10px #e94e7766;} 100% {box-shadow:0 6px 18px #ffd7e88e;}}
+    @keyframes badgeShake {0%,100% {transform:translateY(0) rotate(-1deg);} 60% {transform:translateY(-1.5px) rotate(1.5deg);} 90% {transform:translateY(2px) rotate(-2deg);}}
     .impact-btn {
       background:linear-gradient(90deg,#fbb1b1 0%,#e94e77 100%);
       color:#fff;border-radius:42px;box-shadow:0 0 34px #e94e77cc, 0 0px 0px #fff;
-      display:inline-block;padding:16px 36px;font-size:1.18rem;font-weight:900;letter-spacing:-0.5px;
-      border:none;outline:none;transition:background 0.24s,box-shadow 0.2s;cursor:pointer;
-      margin:0 auto; margin-bottom:0;
-      text-align:center;
-      width:90%;max-width:400px;
+      display:inline-block;padding:22px 54px;font-size:1.29rem;font-weight:900;letter-spacing:-0.5px;
+      position:relative;overflow:hidden;border:none;outline:none;transition:background 0.24s,box-shadow 0.2s;cursor:pointer;
+      animation: pulseWave 1.5s infinite cubic-bezier(.4,0,.6,1);
     }
-    .impact-btn strong{font-weight:900;}
+    @keyframes pulseWave {0% {box-shadow:0 0 20px #e94e77cc, 0 0 0 #fff;transform:scale(1);} 60% {box-shadow:0 0 45px #ffe1ecf3,0 0 36px #e94e77cc;transform:scale(1.08);} 100% {box-shadow:0 0 20px #e94e77cc, 0 0 0 #fff;transform:scale(1);}}
+    .impact-btn::after {
+      content: '';
+      position: absolute; left: 50%; top: 50%; width: 140%; height: 140%;
+      background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+      transform: translate(-50%,-50%) scale(0.7);
+      opacity: 0.8;
+      animation: waveFlash 1.6s infinite;
+      pointer-events: none;
+    }
+    @keyframes waveFlash {0% { opacity: 0.7; transform: translate(-50%,-50%) scale(0.7);} 60% { opacity: 1; transform: translate(-50%,-50%) scale(1.15);} 100% { opacity: 0.1; transform: translate(-50%,-50%) scale(1.6);}}
     .impact-btn:hover {
       background:linear-gradient(90deg,#e94e77 10%,#fbb1b1 90%);
       box-shadow:0 0 65px #e94e77dd, 0 0 42px #fff7,0 0 22px #e94e77bb;
+      animation: btnVibe 0.13s infinite alternate, pulseWave 1.5s infinite cubic-bezier(.4,0,.6,1);
     }
-    .service-box {
-      background:linear-gradient(90deg,#ffecf2 0%,#ffe1ec 100%);
-      padding:22px 7px 13px 7px;border-radius:16px;margin:0 auto 2px auto;text-align:center;box-shadow:0 2px 10px #fbb1b133;max-width:94vw;
-      margin-top:28px;
+    @keyframes btnVibe {0% {transform:translateY(0) scale(1.08);} 100% {transform:translateY(-2.2px) scale(0.98);}}
+    .review-photo {
+      background:linear-gradient(135deg,#fff4f7 60%,#fffbe7 100%);
+      box-shadow: 0 4px 16px #ffe1ec65;
+      min-width:150px;max-width:170px;width:100%;height:116px;
+      border-radius:18px;margin:0 9px 15px 9px;display:flex;
+      align-items:center;justify-content:center;position:relative;
+      overflow:hidden;
+      border:2.5px solid #ffe5ef;
     }
-    .service-title {
-      color:#e94e77;font-size:1.13rem;font-weight:800;letter-spacing:-1px;display:block;margin-bottom:7px;
+    .review-photo img {
+      width: 94px; height: 94px; object-fit: cover; border-radius:14px;
+      box-shadow:0 2px 12px #ffe1ecb2; display:block;
     }
-    .service-desc {
-      font-size:1.02rem;
-      color:#e94e77;font-weight:700;
-      line-height:1.32;
-      letter-spacing:-0.3px;
+    /* 반응형 모바일 */
+    @media (max-width:800px) {
+      .main-inner { max-width: 98vw; padding: 10px 0; border-radius: 0;}
+      .review-photo { min-width:100px; max-width:110px; height:80px;}
+      .review-photo img { width:70px;height:70px;}
+    }
+    @media (max-width:600px) {
+      .main-inner { max-width: 100vw; padding: 3vw 0 0 0; }
+      .review-photo { min-width:70px; max-width:90px; height:56px;}
+      .review-photo img { width:45px;height:45px;}
+      h1, h2, .ani-cash { font-size: 0.98em !important;}
     }
   </style>
-  <!-- 헤더 -->
-  <div style="padding:22px 8px 0 8px;text-align:center;">
-    <span class="ani-box">
-      <img src="https://dummyimage.com/32x32/ffdde6/fff&text=🔥" alt="로고" style="width:32px;height:32px;vertical-align:middle;margin-right:6px;border-radius:40px;border:2px solid #fff;">
-      <span style="vertical-align:middle;">당일민족</span>
-    </span>
-    <span class="ani-badge">인터넷·TV 사은품 축제</span>
-  </div>
-  <!-- 현금혜택 헤드라인 -->
-  <div class="ani-cash">
-    <h2>
-      💰 최대 110만원 현금사은품2 당일지급<br>
-      24시간 실시간 상담 | 당일 설치 | 전국 어디든 설치 가능 | 초고속 현금지급
-    </h2>
-  </div>
-  <!-- 메인 타이틀/부제목 -->
-  <div class="main-title" style="margin-bottom:8px;">
-    🏆 인터넷·TV 설치 성지<br>
-    <span style="color:#e94e77;">업계 최고 현금 사은품</span> 지금 바로 받으세요!
-  </div>
-  <ul class="benefit-list">
-    <li class="pink">✔️ 3년 이상 사용고객 · 신규 · 이사 · 사업장 · 원룸 · 모텔 · 호텔 전부 환영</li>
-    <li class="gray">✔️ 1:1 맞춤 컨설팅 · 공식요금비교 · 현금혜택 안내</li>
-  </ul>
-  <!-- 후기 사진 3칸 네모(글자 없이, 실제 후기 사진만!) -->
-  <div class="review-wrap">
-    <div class="review-photo"><img src="**여기1번_후기사진_URL**" alt="후기1"></div>
-    <div class="review-photo"><img src="**여기2번_후기사진_URL**" alt="후기2"></div>
-    <div class="review-photo"><img src="**여기3번_후기사진_URL**" alt="후기3"></div>
-  </div>
-  <!-- 실시간 상담 버튼 (폼 연결 + 강력한 임팩트 애니메이션) -->
-  <div style="text-align:center;margin-bottom:17px;">
-    <a href="https://d1mj9182.github.io/dangil-landing/" target="_blank" class="impact-btn">
-      💬 <strong>365일 24시간 실시간 상담 바로가기</strong>
-    </a>
-  </div>
-  <div style="z-index:2;position:relative;text-align:center;margin-bottom:19px;">
-    <strong style="font-size:1.07rem;color:#1a1744;">최고 혜택, 지금 바로 무료 상담받기!</strong>
-    <!-- 폼이 이 아래에 삽입됩니다 -->
-  </div>
-  <!-- 하단 서비스/브랜드 박스 -->
-  <div class="service-box">
-    <span class="service-title">유심 · 정수기 · CCTV까지 원스톱 설치!</span>
-    <span class="service-desc">
-      SK · KT · LG · KT스카이라이프 · LG헬로비전 공식 취급
-    </span>
+  <div class="falling-money-bg"></div>
+  <div class="main-inner">
+    <!-- 상단 축제/현금/이벤트/금가루 배경 그래픽 -->
+    <div style="width:100%;text-align:center;margin-bottom:10px;">
+      <span class="ani-box">
+        <img src="https://dummyimage.com/32x32/ffdde6/fff&text=🔥" alt="로고" style="width:32px;height:32px;vertical-align:middle;margin-right:6px;border-radius:40px;border:2px solid #fff;">
+        <span style="vertical-align:middle;">당일민족</span>
+      </span>
+      <span class="ani-badge">인터넷·TV 사은품 축제</span>
+    </div>
+    <div class="ani-cash" style="margin-top:10px;">
+      <h2 style="margin:0;color:#fff;font-size:1.35rem;letter-spacing:-1.2px;text-align:center;font-weight:900;text-shadow:0 2px 18px #e94e77ad;">
+        💰 <span style="font-size:1.8rem;">최대 110만원 현금사은품 <span style="text-shadow:0 2px 12px #ffdae3;">당일지급</span></span><br>
+        <span style="display:inline-block;font-size:1.11rem;font-weight:700;margin-top:7px;">
+          24시간 실시간 상담&nbsp;|&nbsp;당일 설치&nbsp;|&nbsp;전국 어디든 설치 가능&nbsp;|&nbsp;초고속 현금지급
+        </span>
+      </h2>
+    </div>
+    <h1 style="font-size:2.08rem;text-align:center;color:#232245;margin-bottom:16px;font-weight:900;letter-spacing:-1px;">
+      🏆 인터넷·TV 설치 성지1<br>
+      <span style="color:#e94e77;">업계 최고 현금 사은품</span> 지금 바로 받으세요!
+    </h1>
+    <ul style="list-style:none;padding:0;margin:0 0 23px 0;font-size:1rem;color:#444;text-align:center;z-index:2;position:relative;">
+      <li style="display:inline-block;margin:8px 12px;">
+        <span style="background:#fff4f7;color:#e94e77;padding:7px 17px;border-radius:20px;font-weight:700;font-size:1.04rem;box-shadow:0 1px 6px #ffe1ec8c;">
+          ✔️ 3년 이상 사용고객 · 신규 · 이사 · 사업장 · 원룸 · 모텔 · 호텔 전부 환영
+        </span>
+      </li>
+      <li style="display:inline-block;margin:8px 12px;">
+        <span style="background:#f7f8fa;color:#8b8db0;padding:7px 17px;border-radius:20px;font-weight:700;font-size:1.04rem;">
+          ✔️ 1:1 맞춤 컨설팅 · 공식요금비교 · 현금혜택 안내
+        </span>
+      </li>
+    </ul>
+    <!-- 후기 사진 3칸 네모(글자 없이, 실제 후기 사진만!) -->
+    <div style="z-index:2;position:relative;display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;">
+      <div class="review-photo"><img src="**여기1번_후기사진_URL**" alt="후기1"></div>
+      <div class="review-photo"><img src="**여기2번_후기사진_URL**" alt="후기2"></div>
+      <div class="review-photo"><img src="**여기3번_후기사진_URL**" alt="후기3"></div>
+    </div>
+    <!-- 실시간 상담 버튼 (폼 연결 + 강력한 임팩트 애니메이션) -->
+    <div style="z-index:2;position:relative;text-align:center;margin-bottom:24px;">
+      <a href="https://d1mj9182.github.io/dangil-landing/" target="_blank" class="impact-btn">
+        💬 365일 24시간 <strong>실시간 상담 바로가기</strong>
+      </a>
+    </div>
+    <div style="z-index:2;position:relative;text-align:center;margin-bottom:34px;">
+      <strong style="font-size:1.17rem;color:#1a1744;">최고 혜택, 지금 바로 무료 상담받기!</strong><br>
+      <!-- 폼이 이 아래에 삽입됩니다 -->
+    </div>
+    <!-- 하단 분홍박스: 모든 서비스/브랜드 한눈에 -->
+    <div style="background:linear-gradient(90deg,#ffecf2 0%,#ffe1ec 100%);
+      padding:19px 7px 13px 7px;border-radius:12px;margin:0 auto 2px auto;text-align:center;box-shadow:0 2px 10px #fbb1b133;z-index:2;position:relative;">
+      <span style="color:#e94e77;font-size:1.15rem;font-weight:800;letter-spacing:-1px;display:inline-block;margin-bottom:7px;">
+        유심 · 정수기 · CCTV까지 원스톱 설치!<br>
+        <span style="font-size:0.99rem;color:#e94e77;font-weight:700;">
+          SK · KT · LG · KT스카이라이프 · LG헬로비전 공식 취급
+        </span>
+      </span>
+    </div>
   </div>
 </section>
 <!-- 당일민족 상세페이지 끝 -->
